@@ -7,14 +7,16 @@
 static void CustomStackBenchmark(benchmark::State& state) {
     Stack<int> custom_stack;
     for (auto _: state) {
-        custom_stack.push(rand());
+    	for (int i = 0; i < state.iterations(); i++)
+            custom_stack.push(rand());
     }
 }
 
 static void StackBenchmark(benchmark::State& state) {
     std::stack<int> std_stack;
     for (auto _: state) {
-        std_stack.push(rand());
+    	for (int i = 0; i < state.iterations(); i++)
+            std_stack.push(rand());
     }
 }
 
